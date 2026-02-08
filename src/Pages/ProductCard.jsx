@@ -1,19 +1,53 @@
 export default function ProductCard({ product, onBuy }) {
   return (
-    <div className="bg-white border-gray-200 shadow-md rounded-xl p-5 w-64 flex flex-col items-center text-center">
+    <div
+      className="
+        bg-white
+        border border-gray-200
+        rounded-xl
+        shadow-sm
+        p-4
+        w-full
+        max-w-sm
+        flex flex-col
+        sm:items-center
+        text-center sm:text-center
+      "
+    >
+      {/* IMAGE */}
       <img
         src={product.image}
         alt={product.name}
-        className="w-full h-50 object-cover rounded-lg"
+        className="
+          w-full
+          h-60
+          sm:h-56
+          object-contain
+          rounded-lg
+        "
       />
 
-      <h3 className="mt-3 text-lg font-semibold text-center">{product.name}</h3>
+      {/* TEXT */}
+      <h3 className="mt-3 text-base sm:text-lg font-semibold">
+        {product.name}
+      </h3>
 
-      <p className="text-red-600 text-center">৳{product.price}</p>
+      <p className="text-red-600 font-semibold mt-1">৳{product.price}</p>
 
+      {/* BUTTON */}
       <button
         onClick={() => onBuy(product)}
-        className="mt-4 w-full bg-red-600 text-white py-2 rounded-lg hover:bg-red-800 transition duration-300 ease-in-out"
+        className="
+          mt-3
+          w-full
+          sm:w-full
+          bg-red-600
+          text-white
+          py-2
+          rounded-lg
+          hover:bg-red-700
+          transition
+        "
       >
         Buy Now
       </button>
