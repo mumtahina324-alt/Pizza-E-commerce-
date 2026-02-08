@@ -5,7 +5,7 @@ export default function HeroSection() {
     <section className="bg-white py-12">
       <div className="max-w-7xl mx-auto px-20 flex items-center justify-between">
         {/* LEFT CONTENT */}
-        <div className="max-w-xl space-y-6">
+        <div className="max-w-xl space-y-4">
           <h1 className="text-5xl font-bold text-gray-900">
             Tasty <span className="text-red-600">Pizza</span>
           </h1>
