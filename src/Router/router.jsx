@@ -1,8 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
-import RootLayout from "../layouts/RootLayout";
-import About from "../pages/About";
-import Contact from "../pages/Contact";
-import Home from "../pages/Home";
+import RootLayout from "../Layouts/RootLayout";
+import About from "../Pages/About";
+import Cart from "../Pages/Cart";
+import Contact from "../Pages/Contact";
+import Home from "../Pages/Home";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,6 +20,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <Contact />,
+      },
+      {
+        path: "/cart",
+        element: <Cart />,
       },
     ],
   },

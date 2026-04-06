@@ -1,53 +1,34 @@
-export default function ProductCard({ product, onBuy }) {
+import { useContext } from "react";
+import { CartContext } from "../context/CartContext";
+
+export default function ProductCard({ product, onClick }) {
+  const { dispatch } = useContext(CartContext);
+
+  const handleBuyNow = (e) => {
+    e.stopPropagation(); // modal open আটকাতে
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
+
   return (
     <div
-      className="
-        bg-white
-        border border-gray-200
-        rounded-xl
-        shadow-sm
-        p-4
-        w-full
-        max-w-sm
-        flex flex-col
-        sm:items-center
-        text-center sm:text-center
-      "
+      onClick={onClick} // card click → modal open
+      className="bg-white rounded-xl shadow hover:shadow-lg transition p-4 cursor-pointer"
     >
-      {/* IMAGE */}
       <img
         src={product.image}
         alt={product.name}
-        className="
-          w-full
-          h-60
-          sm:h-56
-          object-contain
-          rounded-lg
-        "
+        className="h-56 w-full object-contain"
       />
 
-      {/* TEXT */}
-      <h3 className="mt-3 text-base sm:text-lg font-semibold">
-        {product.name}
-      </h3>
+      <h3 className="mt-4 font-semibold">{product.name}</h3>
 
-      <p className="text-red-600 font-semibold mt-1">৳{product.price}</p>
+      <p className="text-red-600 text-sm font-semibold mb-4 mt-1">
+        ৳{product.price.toLocaleString()}
+      </p>
 
-      {/* BUTTON */}
       <button
-        onClick={() => onBuy(product)}
-        className="
-          mt-3
-          w-full
-          sm:w-full
-          bg-red-600
-          text-white
-          py-2
-          rounded-lg
-          hover:bg-red-700
-          transition
-        "
+        onClick={handleBuyNow} // bottom click → cart add
+        className="w-full bg-red-600 hover:bg-red-700 text-white py-2 rounded-lg font-semibold transition"
       >
         Buy Now
       </button>

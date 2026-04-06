@@ -25,7 +25,7 @@ export default function HeroSection() {
             taste.
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start mt-8">
             <button className="px-8 py-2 bg-red-600 text-white font-semibold rounded-lg">
               Buy Now
             </button>
